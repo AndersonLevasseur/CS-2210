@@ -1,9 +1,10 @@
 package project4;
 
 import java.lang.reflect.Array;
+import java.util.Queue;
 
 // import 
-public class ArrayQueue<E> implements Queue {
+public class ArrayQueue<E> implements Queue<E> {
     private Array<E> arrayQueue = new Array<E>();
     //frontIndex actually pointing at front object
     //rearIndex actually pointing at rear object
