@@ -1,17 +1,14 @@
 package project4;
 
-import java.lang.reflect.Array;
-import java.util.Queue;
 
 // import 
 public class ArrayQueue<E> implements Queue<E> {
-    private Array<E> arrayQueue = new Array<E>();
+    private Object[] arrayQueue = new Object[5];
     //frontIndex actually pointing at front object
     //rearIndex actually pointing at rear object
     private int frontIndex, rearIndex, arraySize;
 
     public ArrayQueue () {
-        arrayQueue = new Array<E>(5);
         frontIndex = 0;
         rearIndex = 0;
         arraySize = 5;
@@ -30,13 +27,13 @@ public class ArrayQueue<E> implements Queue<E> {
         if (isEmpty()) {
             throw new QueueEmptyException();
         }
-        E element = arrayQueue[frontIndex];
+        Object element = arrayQueue[frontIndex];
         frontIndex++;
-        return element;
+        return (E) element;
     }
 
     public E front() throws QueueEmptyException {
-        return arrayQueue[frontIndex];
+        return (E) arrayQueue[frontIndex];
     }
 
     public int size() {
@@ -48,7 +45,7 @@ public class ArrayQueue<E> implements Queue<E> {
     }
 
     private void resize() {
-        Array<E> temp = new Array<E>(arraySize*2);
+        Object[] temp = new Object[arraySize*2];
         
         for (int i = frontIndex; i < arraySize + frontIndex; i++) {
             temp[i - frontIndex] = arrayQueue[i % arraySize];
