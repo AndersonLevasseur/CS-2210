@@ -1,7 +1,7 @@
 package project4;
 
 /**
- * This class implements a queue to crete an ArrayQueue
+ * This class implements a queue to create an ArrayQueue
  *
  * @author Anderson Levasseur
  * @version 1.0
@@ -56,7 +56,7 @@ public class ArrayQueue<E> implements Queue<E> {
             throw new InvalidDataException();
         }
 
-        arrayQueue[rearIndex] = element;
+        arrayQueue[rearIndex % arraySize] = element;
         rearIndex++;
     }
 
@@ -72,7 +72,7 @@ public class ArrayQueue<E> implements Queue<E> {
         if (isEmpty()) {
             throw new QueueEmptyException();
         }
-        Object element = arrayQueue[frontIndex];
+        Object element = arrayQueue[frontIndex % arraySize];
         frontIndex++;
         return (E) element;
     }
