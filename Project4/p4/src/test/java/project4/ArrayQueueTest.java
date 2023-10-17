@@ -127,4 +127,18 @@ public class ArrayQueueTest {
         });
     }
 
+    @Test
+    public void Int_ArrayQueue_resizes_when_scrambled() {
+        for (int i = 0; i < 33; i++) {
+            testInt.enqueue(i);
+            testInt.dequeue();
+            testInt.enqueue(i + 1);
+        }
+
+        for (int i = 17; i < 33; i++) {
+            assertSame(i, testInt.dequeue());
+            assertSame(i, testInt.dequeue());
+        }
+    }
+
 }
