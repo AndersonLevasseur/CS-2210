@@ -32,8 +32,7 @@ public class ArrayQueueTest {
      */
     @BeforeEach
     public void setup() {
-        testInt = new ArrayQueue<>();
-
+        testInt = new ArrayQueue<>(5);
     }
 
     /**

@@ -23,21 +23,31 @@ package project4;
  */
 
 public class ArrayQueue<E> implements Queue<E> {
-    private Object[] arrayQueue = new Object[5];
+    private static final int ARRAY_SIZE = 50;
+    private Object[] arrayQueue;
     // frontIndex actually pointing at front object
     // rearIndex actually pointing at rear object
     private int frontIndex, size, arrayLength;
 
     /**
-     * @param None - ArrayQueue Constructor, maybe not needed?
      * @return Nothing
      */
     public ArrayQueue() {
         frontIndex = 0;
         size = 0;
         arrayLength = 5;
+        arrayQueue = new Object[ARRAY_SIZE];
     }
-
+    /**
+     * @param newArrSize - length of the desired arrayQueue
+     * @return Nothing
+     */
+        public ArrayQueue(int newArrSize) {
+        frontIndex = 0;
+        size = 0;
+        arrayLength = 5;
+        arrayQueue = new Object[newArrSize];
+    }
     /**
      * Adds Item to ArrayQueue
      * 
