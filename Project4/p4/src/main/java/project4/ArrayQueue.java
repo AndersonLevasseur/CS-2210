@@ -23,31 +23,34 @@ package project4;
  */
 
 public class ArrayQueue<E> implements Queue<E> {
-    private static final int ARRAY_SIZE = 50;
+    private static final int DEFUALT_ARRAY_SIZE = 50;
     private Object[] arrayQueue;
     // frontIndex actually pointing at front object
     // rearIndex actually pointing at rear object
     private int frontIndex, size, arrayLength;
 
     /**
+     * Constructs an arrayQueue with the default size
+     * 
      * @return Nothing
      */
     public ArrayQueue() {
-        frontIndex = 0;
-        size = 0;
-        arrayLength = 5;
-        arrayQueue = new Object[ARRAY_SIZE];
+        this(DEFUALT_ARRAY_SIZE);
     }
+
     /**
+     * constructs an arrayQueue of size newArrSize
+     * 
      * @param newArrSize - length of the desired arrayQueue
      * @return Nothing
      */
-        public ArrayQueue(int newArrSize) {
+    public ArrayQueue(int newArrSize) {
         frontIndex = 0;
         size = 0;
         arrayLength = 5;
         arrayQueue = new Object[newArrSize];
     }
+
     /**
      * Adds Item to ArrayQueue
      * 
@@ -120,6 +123,10 @@ public class ArrayQueue<E> implements Queue<E> {
         return size == 0;
     }
 
+    /**
+     * Double the size of the arrayQueue and orders the elements by when they were
+     * inserted
+     */
     private void resize() {
         Object[] temp = new Object[arrayLength * 2];
 
