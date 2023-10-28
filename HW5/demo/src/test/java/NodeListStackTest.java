@@ -32,9 +32,4 @@ public class NodeListStackTest {
         assertEquals('N', d.pop());
     }
     
-    @Test
-    public void () {
-        d.push('N');
-        assertEquals('N', d.top());
-    }
 }
