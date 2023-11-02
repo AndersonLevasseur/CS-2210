@@ -14,40 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.cucumber</groupId>
-                <artifactId>cucumber-bom</artifactId>
-                <version>7.11.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>5.9.2</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-      <dependency>
-            <groupId>org.junit.junit5</groupId>
-            <artifactId>junit5</artifactId>
-            <version>1.0.6</version>
-            <type>pom</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testifyproject.junit5</groupId>
-            <artifactId>junit5</artifactId>
-            <version>1.0.6</version>
-            <type>pom</type>
-        </dependency>
-        
         <dependency>
             <groupId>project4</groupId>
             <artifactId>p4</artifactId>

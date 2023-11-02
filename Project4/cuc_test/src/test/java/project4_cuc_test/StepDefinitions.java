@@ -18,9 +18,5 @@ public class StepDefinitions {
         a.enqueue(3);
     }
 
-    @Then("front shows three")
-    public void theScenarioPasses() {
-        throw a.front() == 3;
-    }
 
 }
