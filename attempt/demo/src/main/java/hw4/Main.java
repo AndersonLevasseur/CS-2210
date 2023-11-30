@@ -64,12 +64,10 @@ public class Main {
     }
 
     public static LinkedList<Object> fasterRec(LinkedList<Object> l, LinkedList<Object> ll) {
-        if (l.size() == 1) {
-            ll.push(l.pop());
+        if (l.size() == 0) {
             return ll;
         }
-        Object f = l.pop();
-        ll.push(f);
+        ll.push(l.pop());
         return fasterRec(l, ll);
     }
 
