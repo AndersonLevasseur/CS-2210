@@ -45,7 +45,7 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
         System.out.println(myHeap.size());
         Random rand = new Random();
         for (int i = 0; i < 10000; i++) {
-            myHeap.add(Integer.valueOf(rand.nextInt(12)), Integer.valueOf(rand.nextInt()));
+            myHeap.add(Integer.valueOf(rand.nextInt()), Integer.valueOf(rand.nextInt()));
         }
         while (!myHeap.isEmpty()) {
 
@@ -60,10 +60,10 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
     /**
      * Places the given position in the correct spot in the heap
      *
-     * @param newKey
+     * @param currPos
      */
-    public void bubbleUp(Object newKey) {
-        ArrayPosition key = (ArrayPosition) newKey;
+    public void bubbleUp(Position currPos) {
+        ArrayPosition key = (ArrayPosition) currPos;
         while (!isRoot(key) && heapComp.isLessThan(key.element(), super.parent(key).element())) {
             // swap elements
             Object tmpEl = key.element();
@@ -77,13 +77,14 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
      * resizes the btArray to include the next layer of the heap
      */
     public void resize() {
-        ArrayPosition[] newArr = new ArrayPosition[(size * 2) - 1];
+        ArrayPosition[] newArr = new ArrayPosition[(size * 2) + 1];
         System.arraycopy(super.btArray, 0, newArr, 0, super.btArray.length);
         super.btArray = newArr;
     }
 
     /**
      * Creates a Item from newKey and newElement then creates an arrayPostion from the Item and an index then adds it to the bottom of the heap
+     *
      * @param newKey
      * @param newElement
      * @throws InvalidObjectException
@@ -104,6 +105,7 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
 
     /**
      * Returns the smallest between rightChild, LeftChild and parent given parent
+     *
      * @param oldKey
      * @return the smallest of parent and children
      */
@@ -130,6 +132,7 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
 
     /**
      * Starting at the given key, compares with children and swap with the lowest value
+     *
      * @param oldKey
      */
     public void bubbleDown(Object oldKey) {
@@ -154,14 +157,11 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
      * @throws EmptyHeapException
      */
     public Object removeRoot() throws EmptyHeapException {
-        int k, e;
         Item root = (Item) super.root().element();
-        k = (int) root.key();
-        e = (int) root.element();
         ((ArrayPosition) super.root()).setElement(super.btArray[size - 1].element());
         bubbleDown(root());
         size--;
 
-        return new Item(k, e);
+        return root;
     }
 }
