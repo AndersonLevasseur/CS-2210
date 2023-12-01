@@ -4,8 +4,8 @@ package project7;
  * Title:        Project #7
  * Description:
  * Copyright:    Copyright (c) 2001
- * Company:
- * @author
+ * Company: Cedarville University
+ * @author Anderson Levasseur
  * @version 1.0
  */
 

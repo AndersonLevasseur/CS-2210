@@ -22,7 +22,6 @@ package project7;
  *      8 Dec 2008 - DMG changed design of several methods to determine whether
  *          children are present based on size, not capacity. Improved checkPosition
  *          to test size and use instanceOf
- *
  * Description: This class provides an array implementation of the BinaryTree
  * ADT.  Because the underlying structure is an array, it will be most
  * effective in applications where the Binary Tree remains balanced.

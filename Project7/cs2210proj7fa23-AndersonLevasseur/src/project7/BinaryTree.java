@@ -7,7 +7,6 @@ package project7;
  * @version 1.0
  * Created: 15 Feb 01
  * Summary of Modifications:
- *
  * Description:  Provides a set of methods for employing a binary tree.
  * The ADT assumes the tree will be created externally, and provides no methods
  * for adding or deleting nodes from the tree.  Nodes within the tree are
