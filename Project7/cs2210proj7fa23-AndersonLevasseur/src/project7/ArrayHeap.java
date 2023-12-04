@@ -4,9 +4,9 @@ import java.util.Random;
 
 /**
  * Title:        Project #7
- * Description:
+ * Description: A heap that is stored in an array
  * Copyright:    Copyright (c) 2001
- * Company:
+ * Company: Cedarville university
  *
  * @author Anderson Levasseur
  * @version 1.0
@@ -27,7 +27,6 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
 
     // you may want to expand main; it is just provided as a sample
     public static void main(String[] args) {
-        Comparator myComp = new IntegerComparator();
         Comparator itemComp = new ItemComparator();
         Heap myHeap = new ArrayHeap(itemComp, 7);
 
@@ -45,7 +44,7 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
         System.out.println(myHeap.size());
         Random rand = new Random();
         for (int i = 0; i < 10000; i++) {
-            myHeap.add(Integer.valueOf(rand.nextInt()), Integer.valueOf(rand.nextInt()));
+            myHeap.add(Integer.valueOf(rand.nextInt(1)), Integer.valueOf(rand.nextInt()));
         }
         while (!myHeap.isEmpty()) {
 
@@ -64,7 +63,8 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
      */
     public void bubbleUp(Position currPos) {
         ArrayPosition key = (ArrayPosition) currPos;
-        while (!isRoot(key) && heapComp.isLessThan(key.element(), super.parent(key).element())) {
+        while (!isRoot(key)
+                && heapComp.isLessThan(key.element(), super.parent(key).element())) {
             // swap elements
             Object tmpEl = key.element();
             key.setElement(super.parent(key).element());
@@ -83,7 +83,8 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
     }
 
     /**
-     * Creates a Item from newKey and newElement then creates an arrayPostion from the Item and an index then adds it to the bottom of the heap
+     * Creates a Item from newKey and newElement then creates an arrayPostion
+     * from the Item and an index then adds it to the bottom of the heap
      *
      * @param newKey
      * @param newElement
@@ -121,9 +122,11 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
             return par;
         }
 
-        if (heapComp.isLessThan(rChild.element(), lChild.element()) && heapComp.isLessThan(rChild.element(), par.element())) {
+        if (heapComp.isLessThan(rChild.element(), lChild.element())
+                && heapComp.isLessThan(rChild.element(), par.element())) {
             return rChild;
-        } else if (heapComp.isLessThan(lChild.element(), par.element()) && heapComp.isLessThanOrEqualTo(lChild.element(), rChild.element())) {
+        } else if (heapComp.isLessThan(lChild.element(), par.element())
+                && heapComp.isLessThanOrEqualTo(lChild.element(), rChild.element())) {
             return lChild;
         } else {
             return par;
@@ -131,12 +134,13 @@ public class ArrayHeap extends ArrayBinaryTree implements Heap {
     }
 
     /**
-     * Starting at the given key, compares with children and swap with the lowest value
+     * Starting at the given key, compares with children and swap with
+     * the lowest value
      *
-     * @param oldKey
+     * @param pos
      */
-    public void bubbleDown(Object oldKey) {
-        ArrayPosition key = (ArrayPosition) oldKey;
+    public void bubbleDown(Position pos) {
+        ArrayPosition key = (ArrayPosition) pos;
         while (super.isInternal(key) && lowest(key) != key) {
             Object tmpEl = key.element();
             Position child;
