@@ -7,3 +7,6 @@
 [submodule "TermProject/cs2210termprojectfa23-AndersonLevasseur"]
 	path = TermProject/cs2210termprojectfa23-AndersonLevasseur
 	url = https://github.com/CedarvilleCS2210/cs2210termprojectfa23-AndersonLevasseur.git
+[submodule "TermProject/TwoFourTree"]
+	path = TermProject/TwoFourTree
+	url = https://github.com/AndersonLevasseur/TwoFourTree.git
